@@ -27,22 +27,28 @@ done
 
 # Regenerate index.md
 INDEX_FILE="index.md"
-lessons=$(ls -1 lessons/lesson-*.md 2>/dev/null || true)
-vocabs=$(ls -1 vocabulary/vocabulary-*.md 2>/dev/null || true)
-latest_lesson=$(echo "$lessons" | tail -n 1 || true)
-latest_vocab=$(echo "$vocabs" | tail -n 1 || true)
+lessons=$(find lessons -maxdepth 1 -type f -name 'lesson-*.md' -print | sort || true)
+vocabs=$(find vocabulary -maxdepth 1 -type f -name 'vocabulary-*.md' -print | sort || true)
+latest_lesson=$(printf '%s\n' "$lessons" | tail -n 1 || true)
+latest_vocab=$(printf '%s\n' "$vocabs" | tail -n 1 || true)
 {
-  echo "# Spanish Study Index"
+  echo "# Español"
   echo
-  echo "Welcome! Use the links below to navigate."
+  echo "¡Bienvenido! Usa los enlaces abajo para navegar."
   echo
   if [ -n "${latest_lesson:-}" ] || [ -n "${latest_vocab:-}" ]; then
-    echo "## Quick access (latest)"
-    [ -n "${latest_lesson:-}" ] && echo "- Latest lesson: [$(basename "$latest_lesson")](${latest_lesson})"
-    [ -n "${latest_vocab:-}" ] && echo "- Latest vocabulary: [$(basename "$latest_vocab")](${latest_vocab})"
+    echo "## Acceso rápido (lo más reciente)"
+    if [ -n "${latest_lesson:-}" ]; then
+      latest_lesson_name=$(basename "$latest_lesson")
+      echo "- Última lección: [${latest_lesson_name}](${latest_lesson})"
+    fi
+    if [ -n "${latest_vocab:-}" ]; then
+      latest_vocab_name=$(basename "$latest_vocab")
+      echo "- Último vocabulario: [${latest_vocab_name}](${latest_vocab})"
+    fi
     echo
   fi
-  echo "## Lessons"
+  echo "## Lecciones"
   if [ -n "$lessons" ]; then
     echo "$lessons" | while IFS= read -r f; do
       [ -z "$f" ] && continue
@@ -50,10 +56,10 @@ latest_vocab=$(echo "$vocabs" | tail -n 1 || true)
       echo "- [${date}](./${f})"
     done
   else
-    echo "- (none yet)"
+    echo "- (aún no hay)"
   fi
   echo
-  echo "## Vocabulary"
+  echo "## Vocabulario"
   if [ -n "$vocabs" ]; then
     echo "$vocabs" | while IFS= read -r f; do
       [ -z "$f" ] && continue
@@ -61,7 +67,7 @@ latest_vocab=$(echo "$vocabs" | tail -n 1 || true)
       echo "- [${date}](./${f})"
     done
   else
-    echo "- (none yet)"
+    echo "- (aún no hay)"
   fi
   echo
 } > "$INDEX_FILE"
