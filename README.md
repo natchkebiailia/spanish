@@ -14,3 +14,7 @@
 ## Usage
 - Use ./generate-lesson.sh (interactive by default) to create a timestamped lesson and vocabulary.
 - The script automatically updates index.md and rebuilds words.csv.
+
+### View Markdown in Browser
+- Run ./serve.sh then open the shown URL.
+- Use index.html to pick files or add ?file=path in the URL.
