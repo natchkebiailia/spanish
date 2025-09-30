@@ -1,0 +1,64 @@
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")"
+TS=$(date +%F-%H-%M)
+LESSON="lessons/lesson-$TS.md"
+VOCAB="vocabulary/vocabulary-$TS.md"
+mkdir -p lessons vocabulary
+: > "$LESSON"
+: > "$VOCAB"
+
+# Output file paths first (for tooling)
+echo "$LESSON"
+echo "$VOCAB"
+
+# Then print a generic, autonomous prompt for the AI
+cat <<PROMPT
+
+----- COPY BELOW INTO AI -----
+Act as a Spanish teacher and generate the next lesson for this study workspace.
+You can read existing files in lessons/ and vocabulary/ to infer current level,
+coverage so far, and style. Create content that builds progressively without repeating.
+
+FILES TO FILL (write the content directly into these two files):
+- LESSON: $LESSON
+- VOCABULARY: $VOCAB
+
+GOALS
+- Choose an appropriate next topic and grammar focus based on what already exists.
+- Keep the same structure and tone as prior lessons, but introduce new material.
+- Ensure examples are practical and level-appropriate.
+
+REQUIRED LESSON STRUCTURE (Markdown):
+- Title: "Lección — <auto-chosen theme>"
+- Sections in this order:
+  1) Objetivo (2 concise bullets)
+  2) Conjugación/forma (resumen) for the chosen grammar focus
+  3) Usos frecuentes (patterns with 1–2 examples each)
+  4) Frases modelo (5–8 sentences)
+  5) Mini-diálogo (6–8 lines, natural)
+  6) Práctica rápida
+     - 3 fill‑in items
+     - 3 short translations
+  7) ---
+  8) Pronunciación rápida (2–4 bullets if relevant)
+  9) Respuestas sugeridas (answer key for the practice)
+
+REQUIRED VOCABULARY STRUCTURE (Markdown):
+- Heading: "# Vocabulario — <same theme>"
+- Bullet lines formatted exactly as: "- palabra: translation"
+- Include key forms/expressions used in the lesson
+- End with:
+  ---
+  Pronunciación y uso
+  - Include 1–2 short, relevant notes (e.g., contractions, stress, usage)
+
+CONSTRAINTS
+- Do not rename or create additional files; only write to the two files above.
+- Use correct Spanish accents and punctuation.
+- Avoid re-teaching previously covered core content; build on it.
+- Keep everything self‑contained and consistent with earlier lessons.
+
+When finished writing both files, stop. No explanations needed here.
+----- END COPY -----
+PROMPT

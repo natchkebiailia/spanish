@@ -1,0 +1,59 @@
+# Vocabulario — Lección 1 (nuevo)
+
+Verbos clave
+- ir: to go
+- hacer: to make, to do
+- tener: to have
+
+Conjugaciones útiles (formas nuevas en contexto)
+- voy, vas, va, vamos, vais, van
+- hago, haces, hace, hacemos, hacéis, hacen
+- tengo, tienes, tiene, tenemos, tenéis, tienen
+
+Lugares y actividades
+- el gimnasio: gym
+- la casa: home/house
+- el trabajo: work (place)
+- el parque: park
+- el centro: downtown/center
+- el supermercado: supermarket
+- hacer ejercicio: to exercise
+- hacer la compra: to do the shopping/groceries
+- hacer la cena: to make dinner
+
+Expresiones con tener
+- tener hambre: to be hungry
+- tener sed: to be thirsty
+- tener sueño: to be sleepy
+- tener prisa: to be in a hurry
+- tener razón: to be right
+- tener suerte: to be lucky
+- tener X años: to be X years old
+- tener que + inf.: to have to (must)
+- tener ganas de + inf.: to feel like (doing)
+
+Frases útiles
+- ¿Adónde…?: Where (to)…?
+- ¿Qué…?: What…?
+- ¿Tienes tiempo?: Do you have time?
+- esta noche: tonight
+- por la mañana: in the morning
+- los fines de semana: on weekends
+
+Conectores y respuestas
+- luego: later
+- temprano: early
+- ahora: now
+- más tarde: later
+- ¡Qué bien!: Nice!/Great!
+
+
+---
+
+Pronunciación y uso
+- "al" = a + el (contracción). Ej.: voy al parque.
+- "del" = de + el. Ej.: cerca del centro.
+- ¿Adónde…? = ¿A qué lugar…? (movimiento).
+- ir a + inf.: futuro próximo. Ej.: Voy a estudiar.
+- tener que + inf.: obligación. Ej.: Tienen que trabajar.
+- tener ganas de + inf.: deseo. Ej.: Tenemos ganas de viajar.
